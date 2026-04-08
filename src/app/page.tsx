@@ -12,6 +12,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <HamburgerNav color="#171717" />
+      <HomeText />
       <div className={styles.name}>
         <h1>BEN KAHL</h1>
       </div>
@@ -47,7 +48,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <HomeText />
     </div>
   );
 }
