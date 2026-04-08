@@ -1,39 +1,36 @@
 'use client';
 import styles from "./page.module.css";
+import SubpageLayout from "../components/SubpageLayout";
+import PageTitle from "../components/PageTitle";
+
+const contacts = [
+  { icon: "/emailIcon.png", text: "ben.kahl2002@gmail.com", href: "mailto:ben.kahl2002@gmail.com" },
+  { icon: "/github.png", text: "github.com/ben-kahl", href: "https://www.github.com/ben-kahl" },
+  { icon: "/linkedin.png", text: "linkedin.com/in/ben-kahl", href: "https://www.linkedin.com/in/ben-kahl/" },
+];
+
 export default function Contact() {
   return (
-    <div>
-      <div className={styles.textBody}>
-        <h1>CONTACT</h1>
-        <div className={styles.contacts}>
-          <div>
-            <a href='ben.kahl2002@gmail.com'>
-              <div className={styles.emailIcon}></div>
-              ben.kahl2002@gmail.com
+    <SubpageLayout>
+      <PageTitle text="CONTACT" />
+      <div className={styles.contactContent}>
+        <h1 className={styles.heading}>CONTACT</h1>
+        <div className={styles.contactPanel}>
+          {contacts.map((contact, index) => (
+            <a
+              key={contact.text}
+              href={contact.href}
+              className={styles.contactRow}
+              style={{ animationDelay: `${0.4 + index * 0.1}s` }}
+              target={contact.href.startsWith("http") ? "_blank" : undefined}
+              rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            >
+              <div className={styles.contactIcon} style={{ backgroundImage: `url(${contact.icon})` }} />
+              <span>{contact.text}</span>
             </a>
-          </div>
-          <div>
-            <a href='https://www.github.com/ben-kahl'>
-              <div className={styles.githubIcon}></div>
-              github.com/ben-kahl
-            </a>
-          </div>
-          <div>
-            <a href='https://www.linkedin.com/in/ben-kahl/'>
-              <div className={styles.linkedInIcon}></div>
-              linkedin.com/in/ben-kahl/
-            </a>
-          </div>
+          ))}
         </div>
       </div>
-      <h3>temp</h3>
-      <div className={styles.background}>
-        <div className={styles.outerRing}></div>
-        <div className={styles.innerCircle}></div>
-        <div className={styles.leftPoly}></div>
-
-        <div className={styles.rightBox}></div>
-      </div>
-    </div>
+    </SubpageLayout>
   );
 }

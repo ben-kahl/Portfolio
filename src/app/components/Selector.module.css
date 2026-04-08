@@ -1,8 +1,20 @@
 .selectorContainer {
   position: absolute;
-  bottom: 127px;
+  top: -10%;
+  left: -5%;
   width: 100%;
-  height: 50%;
-  transform: translate(0%, -120%);
+  height: 80%;
   z-index: -1;
+  animation: selectorSlide 0.2s ease-out forwards;
+}
+
+@keyframes selectorSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

@@ -1,65 +1,92 @@
-body {
-  font-family: var(--font-lalezar);
-  background-color: rgba(7, 43, 195, 0.7);
-}
-
-.textBody {
-  color: white;
-  transform: rotate(-4deg);
-  margin-top: 10%;
-  margin-left: -3%;
-}
-
-.textBody h1 {
-  -webkit-text-stroke: 1px;
-  -webkit-text-stroke-color: black;
-  position: absolute;
-  top: -110px;
-  left: 400px;
-  font-size: 100px;
-}
-
-.contacts {
+.contactContent {
   display: flex;
-  justify-content: flex-start;
   flex-direction: column;
-  width: 70%;
-  height: 35%;
-  margin: 0px;
-  padding: 0px;
-  background-color: white;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 80px 80px 80px 140px;
 }
 
-.contacts a {
+.heading {
+  font-family: var(--font-lalezar);
+  font-size: clamp(48px, 7vw, 100px);
+  color: white;
+  -webkit-text-stroke: 1px black;
+  transform: rotate(-4deg);
+  margin-bottom: 30px;
+  animation: headingSlide 0.6s ease-out 0.2s both;
+}
+
+@keyframes headingSlide {
+  0% {
+    opacity: 0;
+    transform: rotate(-4deg) translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-4deg) translateX(0);
+  }
+}
+
+.contactPanel {
+  background: white;
+  transform: rotate(-4deg);
+  clip-path: polygon(0% 3%, 100% 0%, 100% 97%, 0% 100%);
+  padding: 10px 0;
+  width: 75%;
+  animation: panelReveal 0.5s ease-out 0.3s both;
+}
+
+@keyframes panelReveal {
+  0% {
+    opacity: 0;
+    transform: rotate(-4deg) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-4deg) translateY(0);
+  }
+}
+
+.contactRow {
   display: flex;
   align-items: center;
   gap: 30px;
-  padding: 30px 30px;
-  font-size: 40px;
-  margin-left: 5%;
+  padding: 28px 40px;
+  font-size: clamp(20px, 2.5vw, 40px);
+  font-family: var(--font-lalezar);
   font-weight: bold;
   color: black;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: rowFadeIn 0.4s ease-out forwards;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.emailIcon {
-  width: 72px;
-  height: 72px;
-  background-image: url('/emailIcon.png');
-  background-size: cover;
+.contactRow:last-child {
+  border-bottom: none;
 }
 
-.githubIcon {
-  width: 72px;
-  height: 72px;
-  background-image: url('/github.png');
-  background-size: cover;
+.contactRow:hover {
+  background-color: rgba(7, 43, 195, 0.05);
+  transform: translateX(10px);
 }
 
-.linkedInIcon {
-  width: 72px;
-  height: 72px;
-  background-image: url('/linkedin.png');
+@keyframes rowFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.contactIcon {
+  width: clamp(40px, 4vw, 72px);
+  height: clamp(40px, 4vw, 72px);
   background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
 }

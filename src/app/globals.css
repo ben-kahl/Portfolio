@@ -1,12 +1,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --p3r-blue: rgba(7, 43, 195, 0.7);
+  --p3r-navy: rgba(8, 7, 67, 0.97);
+  --p3r-cyan: rgba(0, 232, 255, 1);
+  --p3r-pink: #FDA4F7;
+  --p3r-light-blue: rgba(123, 210, 248, 1);
+  --p3r-mid-blue: rgba(112, 162, 255, 1);
 }
 
 html,
 body {
   max-width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {

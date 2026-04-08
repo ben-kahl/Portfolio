@@ -1,0 +1,52 @@
+.projectsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 80px 80px 80px 140px;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+.projectPanel {
+  display: block;
+  position: relative;
+  background: white;
+  padding: 40px 60px;
+  transform: skewX(-3deg);
+  clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 100%);
+  opacity: 0;
+  animation: panelSlideIn 0.5s ease-out forwards;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  color: black;
+}
+
+.projectPanel:hover {
+  transform: skewX(-3deg) scale(1.02);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.projectPanel h2 {
+  transform: skewX(3deg);
+  font-family: var(--font-lalezar);
+  font-size: clamp(24px, 3vw, 48px);
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+}
+
+.projectPanel p {
+  transform: skewX(3deg);
+  font-size: clamp(14px, 1.2vw, 20px);
+  color: #444;
+}
+
+@keyframes panelSlideIn {
+  0% {
+    opacity: 0;
+    transform: skewX(-3deg) translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: skewX(-3deg) translateX(0);
+  }
+}

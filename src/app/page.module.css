@@ -1,17 +1,21 @@
 .page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   font-family: var(--font-lalezar);
-  display: flex;
 }
 
 .name {
-  position: relative;
-  left: -3%;
-  top: 0%;
-  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 2;
 }
 
 .name h1 {
-  font-size: 19vh;
+  font-size: clamp(80px, 19vh, 200px);
   font-weight: bolder;
   margin: 0;
   padding: 0;
@@ -19,58 +23,69 @@
   transform: rotate(360deg);
 }
 
-.backgroundCircle {
-  width: 90vw;
+.projectList {
+  position: absolute;
+  inset: 0;
+}
+
+.moonContainer {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 85vw;
   height: 85vw;
+  margin-right: -35vw;
+}
+
+.backgroundCircle {
+  position: absolute;
+  width: 105%;
+  height: 102%;
+  top: -1%;
+  left: -3%;
   border-radius: 50%;
   background-color: rgba(8, 7, 67, 0.97);
-  position: absolute;
-  right: -21.4%;
-  top: -65%;
-  overflow: hidden;
 }
 
 .foregroundCircle {
-  width: 85vw;
-  height: 85vw;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-color: rgba(7, 43, 195, 0.7);
   border-radius: 50%;
-  position: absolute;
-  right: -20%;
-  top: -65%;
-  overflow: hidden;
 }
 
-.projectList .links {
-  font-size: 75px;
-  width: 500px;
+.links {
+  font-size: clamp(40px, 5vw, 75px);
   font-weight: bolder;
-  position: relative;
-  right: -30%;
-  top: 55%;
+  position: absolute;
+  left: 35%;
+  top: 50%;
+  transform: translateY(-40%);
   line-height: 1.5;
   z-index: 10;
 }
 
-.projectList ul {
+.links ul {
   text-align: center;
   list-style-type: none;
 }
 
-.projectList .links li {
+.links li {
   position: relative;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
-
 
 .projects {
   transform: rotate(2deg);
-  margin-bottom: 50px;
+  margin-bottom: clamp(20px, 3vw, 50px);
   color: rgba(0, 232, 255, 1);
 }
 
 .about {
   transform: rotate(-10deg);
-  margin-bottom: 50px;
+  margin-bottom: clamp(20px, 3vw, 50px);
   color: rgba(123, 210, 248, 1);
 }
 
@@ -81,7 +96,17 @@
 
 .activeLink {
   color: black;
+  transform: scale(1.05);
 }
 
+.projects.activeLink {
+  transform: rotate(2deg) scale(1.05);
+}
 
-@media screen and (max-width: 600px) {}
+.about.activeLink {
+  transform: rotate(-10deg) scale(1.05);
+}
+
+.contact.activeLink {
+  transform: rotate(5deg) scale(1.05);
+}
